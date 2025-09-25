@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Assistente IA</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Chat com IA</h1>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+    <button onclick="sendMessage()">Enviar</button>
+
+
+    <script>
+        async function sendMessage() {
+            console.log("Função sendMessage chamada");
+            let msg = document.getElementById("user-input").value;
+            let res = await fetch("/chat", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({message: msg})
+            });
+            let data = await res.json();
+            document.getElementById("chat-box").innerHTML += "<p><b>Você:</b> " + msg + "</p>";
+            document.getElementById("chat-box").innerHTML += "<p><b>IA:</b> " + data.response + "</p>";
+        }
+    </script>
+</body>
+</html>
