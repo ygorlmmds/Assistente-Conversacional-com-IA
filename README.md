@@ -32,12 +32,11 @@ cd seu-projeto
 
 2. Instale as dependências:
 
-bash
-Copiar código
+Copiar código:
 pip install -r requirements.txt
 
 3. Adicione sua chave openai api dentro do arquivo .env
 
- OPENAI_API_KEY = 
+ OPENAI_API_KEY = (sua chave)
 
 4. Rode o "main.py"
